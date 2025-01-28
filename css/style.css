@@ -1,0 +1,109 @@
+/* Color
+#1230AE - header 
+#6C48C5 - main
+#C68FE6 - sub
+#FFF7F7
+#ebf5fe - background
+#f9fcff - white
+#5c5c5c80 - grey
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', serif;
+  background: #ebf5fe;
+}
+
+h1 {
+  font-family: 'Delius Unicase', serif;
+  text-transform: uppercase;
+  color: #1230ae;
+}
+
+/* hr {
+  display: block;
+  border: 1px dashed #c68fe6;
+  height: 0;
+} */
+
+footer {
+  margin-bottom: 60px;
+}
+
+.container {
+  background: #f9fcff;
+  max-width: 600px;
+  margin: 80px auto 30px auto;
+  padding: 30px;
+  box-shadow: 10px 10px 13px rgba(62, 66, 70, 0.3);
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+#countries {
+  display: block;
+  margin: 0 auto;
+  padding: 12px;
+  color: #5c5c5c80;
+  width: 80%;
+  border: 1px solid #c68fe6;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+#countries:focus {
+  outline-color: #6c48c5;
+}
+
+.main-container {
+  margin: 50px;
+}
+
+.world-clock-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+  border-bottom: 1px dashed #c68fe6;
+  padding-bottom: 25px;
+}
+
+.world-clock-container:last-child {
+  border: none;
+  padding-bottom: none;
+}
+
+.current-date {
+  color: #5c5c5c80;
+}
+
+.current-right {
+  display: flex;
+}
+.current-time {
+  display: inline-block;
+  font-size: 38px;
+  font-weight: 800;
+  margin-right: 7px;
+}
+
+.current-ampm {
+  align-self: center;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footer-text {
+  text-align: center;
+  color: #5c5c5c80;
+  font-size: 14px;
+}
