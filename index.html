@@ -12,6 +12,9 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Moment -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.46/moment-timezone-with-data-1970-2030.min.js"></script>
     <title>World Clocks JS</title>
   </head>
   <body>
@@ -22,7 +25,7 @@
       </header>
 
       <div class="select-container">
-        <select name="country" id="countries">
+        <select name="city" id="city" required>
           <option value="">Choose city</option>
           <option value="Europe/Paris">Paris</option>
           <option value="Asia/Tokyo">Tokyo</option>
@@ -30,38 +33,8 @@
         </select>
       </div>
 
-      <main class="main-container">
-        <div class="world-clock-container">
-          <div class="current-left">
-            <h2 class="current-country">Paris 🇫🇷</h2>
-            <p class="current-date">August 16th, 2025</p>
-          </div>
-          <div class="current-right">
-            <span class="current-time">1:42</span>
-            <span class="current-ampm">AM</span>
-          </div>
-        </div>
-
-        <div class="world-clock-container">
-          <div class="current-left">
-            <h2 class="current-country">Paris</h2>
-            <p class="current-date">August 16th, 2025</p>
-          </div>
-          <div class="current-right">
-            <p class="current-time">1:42 AM</p>
-          </div>
-        </div>
-
-        <div class="world-clock-container">
-          <div class="current-left">
-            <h2 class="current-country">Paris</h2>
-            <p class="current-date">August 16th, 2025</p>
-          </div>
-          <div class="current-right">
-            <p class="current-time">1:42 AM</p>
-          </div>
-        </div>
-      </main>
+      <!-- Display default contents in JS -->
+      <main class="main-container"></main>
     </div>
     <footer>
       <p class="footer-text">
