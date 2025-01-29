@@ -50,18 +50,21 @@ footer {
   margin-bottom: 30px;
 }
 
-#countries {
+#city {
   display: block;
   margin: 0 auto;
   padding: 12px;
-  color: #5c5c5c80;
   width: 80%;
   border: 1px solid #c68fe6;
   border-radius: 8px;
   font-size: 18px;
 }
 
-#countries:focus {
+#city:invalid {
+  color: #5c5c5c80;
+}
+
+#city:focus {
   outline-color: #6c48c5;
 }
 
@@ -92,6 +95,13 @@ footer {
 .current-time {
   display: inline-block;
   font-size: 38px;
+  font-weight: 800;
+  margin-right: 5px;
+}
+
+.current-seconds {
+  align-self: center;
+  font-size: 30px;
   font-weight: 800;
   margin-right: 7px;
 }
