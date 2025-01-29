@@ -1,20 +1,17 @@
-let city = document.querySelector('#city');
-
-function getTimeRequested(event) {
-  console.log(event.target.value);
-  let date = moment().tz(event.target.value).format('MMMM Do, YYYY');
-  let time = moment().tz(event.target.value).format('h:mm A');
-  console.log(date, time);
-}
-
-city.addEventListener('change', getTimeRequested);
-
-let dateEl = document.querySelector('.current-date');
-
+let cityInput = document.querySelector('#city');
 let cityContainerEl = '';
 let mainContainerEl = document.querySelector('.main-container');
 
+function displaySelectedCity(event) {
+  console.log(event.target.value);
+  cityContainerEl = '';
+  displayDefaultLocations(event.target.value);
+}
+
+cityInput.addEventListener('change', displaySelectedCity);
+
 function displayDefaultLocations(...locations) {
+  // console.log(arguments.length);
   locations.forEach((location) => {
     let date = moment().tz(location).format('MMMM Do, YYYY');
     let time = moment().tz(location).format('h:mm');
@@ -50,11 +47,11 @@ displayDefaultLocations(
   'Australia/Sydney'
 );
 
-setInterval(
-  displayDefaultLocations,
-  1000,
-  'America/New_York',
-  'Europe/Paris',
-  'Asia/Tokyo',
-  'Australia/Sydney'
-);
+// setInterval(
+//   displayDefaultLocations,
+//   1000,
+//   'America/New_York',
+//   'Europe/Paris',
+//   'Asia/Tokyo',
+//   'Australia/Sydney'
+// );
