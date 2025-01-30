@@ -25,11 +25,10 @@ h1 {
   color: #1230ae;
 }
 
-/* hr {
-  display: block;
-  border: 1px dashed #c68fe6;
-  height: 0;
-} */
+h1 a {
+  text-decoration: none;
+  color: #1230ae;
+}
 
 footer {
   margin-bottom: 60px;
@@ -48,6 +47,15 @@ footer {
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 30px;
+}
+
+.logo {
+  width: 42px;
+  margin-right: 10px;
+}
+
+.logo img {
+  width: 100%;
 }
 
 #city {
