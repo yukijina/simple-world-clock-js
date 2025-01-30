@@ -112,6 +112,33 @@ footer {
   font-weight: 400;
 }
 
+.back-home {
+  text-align: right;
+}
+
+.back-home a {
+  display: inline-block;
+  background: #c68fe6;
+  color: #f9fcff;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 5px 3px 5px rgba(135, 134, 134, 0.533);
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: all 200ms ease-in-out;
+}
+
+.back-home a:hover {
+  cursor: pointer;
+  background: #ebf5fe;
+  color: #6c48c5;
+  transform: translate(-2px, -3px);
+}
+
+.back-home a:active {
+  transform: translate(2px, 3px);
+}
+
 .footer-text {
   text-align: center;
   color: #5c5c5c80;
