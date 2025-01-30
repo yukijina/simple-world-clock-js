@@ -2,16 +2,24 @@ let cityInput = document.querySelector('#city');
 let cityContainerEl = '';
 let mainContainerEl = document.querySelector('.main-container');
 
+// Selected value
 function displaySelectedCity(event) {
   console.log(event.target.value);
   cityContainerEl = '';
+
+  // If the value is user's local time zone
+  if (event.target.value === 'local') {
+    let localTime = moment.tz.guess();
+    return displayDefaultLocations(localTime);
+  }
+
   displayDefaultLocations(event.target.value);
 }
 
 cityInput.addEventListener('change', displaySelectedCity);
 
 function displayDefaultLocations(...locations) {
-  // console.log(arguments.length);
+  console.log(arguments.length);
   locations.forEach((location) => {
     let date = moment().tz(location).format('MMMM Do, YYYY');
     let time = moment().tz(location).format('h:mm');
@@ -21,6 +29,12 @@ function displayDefaultLocations(...locations) {
 
     if (location === 'America/New_York') {
       cityContainerEl = '';
+    }
+
+    // If user selected the value, display back home button
+    if (arguments.length === 1) {
+      let backHomeEl = document.querySelector('.back-home');
+      backHomeEl.innerHTML = `<a href="/">Back Home</a>`;
     }
 
     cityContainerEl += `
@@ -47,6 +61,7 @@ displayDefaultLocations(
   'Australia/Sydney'
 );
 
+//Update every 1 second
 // setInterval(
 //   displayDefaultLocations,
 //   1000,
