@@ -1,25 +1,29 @@
 let cityInput = document.querySelector('#city');
 let cityContainerEl = '';
 let mainContainerEl = document.querySelector('.main-container');
+let intervalId;
 
-// Selected value
+// When a user select a single city
 function displaySelectedCity(event) {
-  console.log(event.target.value);
-  cityContainerEl = '';
+  console.log(`passing here ${intervalId}`);
+
+  //Stop current interval (reset)
+  stopInterval();
 
   // If the value is user's local time zone
   if (event.target.value === 'local') {
     let localTime = moment.tz.guess();
-    return displayDefaultLocations(localTime);
+    return (intervalId = setInterval(displayLocations, 1000, localTime));
   }
 
-  displayDefaultLocations(event.target.value);
+  intervalId = setInterval(displayLocations, 1000, event.target.value);
 }
 
+// Select city
 cityInput.addEventListener('change', displaySelectedCity);
 
-function displayDefaultLocations(...locations) {
-  console.log(arguments.length);
+// display locations - single or multiple
+function displayLocations(...locations) {
   locations.forEach((location) => {
     let date = moment().tz(location).format('MMMM Do, YYYY');
     let time = moment().tz(location).format('h:mm');
@@ -27,14 +31,18 @@ function displayDefaultLocations(...locations) {
     let ampm = moment().tz(location).format('A');
     let formattedLocation = location.replace('_', ' ').split('/')[1];
 
+    // clear content as interval keep adding div.
     if (location === 'America/New_York') {
       cityContainerEl = '';
     }
 
-    // If user selected the value, display back home button
+    // If user selected a single location, display back home button
     if (arguments.length === 1) {
       let backHomeEl = document.querySelector('.back-home');
       backHomeEl.innerHTML = `<a href="/">Back Home</a>`;
+
+      //Clear container everytime as interval keep adding div.
+      cityContainerEl = '';
     }
 
     cityContainerEl += `
@@ -54,19 +62,17 @@ function displayDefaultLocations(...locations) {
   });
 }
 
-displayDefaultLocations(
+// Call default locations with interval when the page is loaded
+intervalId = setInterval(
+  displayLocations,
+  1000,
   'America/New_York',
   'Europe/Paris',
   'Asia/Tokyo',
   'Australia/Sydney'
 );
 
-//Update every 1 second
-// setInterval(
-//   displayDefaultLocations,
-//   1000,
-//   'America/New_York',
-//   'Europe/Paris',
-//   'Asia/Tokyo',
-//   'Australia/Sydney'
-// );
+function stopInterval() {
+  clearInterval(intervalId);
+  console.log('stopped');
+}
